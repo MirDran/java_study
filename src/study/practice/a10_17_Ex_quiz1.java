@@ -73,6 +73,10 @@ public class a10_17_Ex_quiz1 {
 	System.out.println(result7);
 	
 //	2) 출력결과 : 8
+	
+	
+	
+	
 
 	}
 
