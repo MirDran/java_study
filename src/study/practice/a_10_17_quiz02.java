@@ -57,13 +57,18 @@ public class a_10_17_quiz02 {
 //		8000원 초과 ~ 12000원 -> "눈물"
 //		12000원 초과 -> "물로배채우기"
 //
-		int menuPrice = 9751; //점심 식사 메뉴 가격 (임의로 변경해가면서 테스트)
-		String result = menuPrice >12000 ? "물로배채우기" : 
-			menuPrice > 8000 && menuPrice <= 12000 ? "눈물" :
-			menuPrice > 6000 && menuPrice <= 8000 ? "선방" : "훌륭";
+//		int menuPrice = 9751; //점심 식사 메뉴 가격 (임의로 변경해가면서 테스트)
+//		String result = menuPrice >12000 ? "물로배채우기" : 
+//			menuPrice > 8000 && menuPrice <= 12000 ? "눈물" :
+//			menuPrice > 6000 && menuPrice <= 8000 ? "선방" : "훌륭";
+//		System.out.println(result);
+//		
+//		
+		
+		int menuPrice = 13000; //점심 식사 메뉴 가격 (임의로 변경해가면서 테스트)
+		String result = menuPrice <= 6000 ? "훌륭" : menuPrice <= 8000 ? "선방" :
+			menuPrice <= 12000 ? "눈물" : "물배" ;
 		System.out.println(result);
-//		
-//		
 	}
 
 }
