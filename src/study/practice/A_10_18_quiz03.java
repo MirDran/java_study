@@ -253,6 +253,12 @@ public class A_10_18_quiz03 {
 			default:
 				System.out.println("학점 F");
 				break;
+				
+				
+				// 예전에는 안되었지만 
+				// 버전 높은곳은 case100, case99 : 등이 가능함
+				// 다만 낮은곳의 경우 적용이 안되므로 주의!
+				
 		}
 		
 	}
