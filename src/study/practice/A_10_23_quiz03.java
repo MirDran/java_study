@@ -11,15 +11,47 @@ public class A_10_23_quiz03 {
 			
 	
 //	1. 중첩반복문을 활용하여 아래와 같이 결과가 나타나도록 출력코드를 작성해주세요.
-//	*****
-//	****
-//	***
-//	**
-//	*
-			System.out.println("=====1번=====");
-		for(int i=0;i<=5;i++) {
+//	*****	:5번		j=1; j<=5; j++;	i:1
+//	****	:4번		j=1; j<=4; j++;	i:2
+//	***		:3번		j=1; j<=3; j++;	i:3
+//	**		:2번		j=1; j<=2; j++;	i:4
+//	*		:1번		j=1; j<=1; j++;	i:5
 			
-			for(int j=5;j>i;j--) {
+//			*****	:5번		j=1; j<=(6-1); j++;	i:1
+//			****	:4번		j=1; j<=(6-2); j++;	i:2
+//			***		:3번		j=1; j<=(6-3); j++;	i:3
+//			**		:2번		j=1; j<=(6-4); j++;	i:4
+//			*		:1번		j=1; j<=(6-5); j++;	i:5
+			
+//			*****	:5번		j=0; j<=(5-1); j++;	i:1
+//			****	:4번		j=0; j<=(5-2); j++;	i:2
+//			***		:3번		j=0; j<=(5-3); j++;	i:3
+//			**		:2번		j=0; j<=(5-4); j++;	i:4
+//			*		:1번		j=0; j<=(5-5); j++;	i:5
+			
+			
+//			*****	:5번		j=1; j<=(5-i); j++;	i:0
+//			****	:4번		j=1; j<=(5-i); j++;	i:1
+//			***		:3번		j=1; j<=(5-i); j++;	i:2
+//			**		:2번		j=1; j<=(5-i); j++;	i:3
+//			*		:1번		j=1; j<=(5-i); j++;	i:4
+			
+			
+//			*****	:5번		j=5; j>=i; j--;	i:1
+//			****	:4번		j=5; j>=i; j--;	i:2
+//			***		:3번		j=5; j>=i; j--;	i:3
+//			**		:2번		j=5; j>=i; j--;	i:4
+//			*		:1번		j=5; j>=i; j--;	i:5
+			
+			System.out.println("=====1번=====");
+		for(int i=5;i>=1;i--) {
+			//i: 5 4 3 2 1
+			for(int j=1;j<=i;j++) {
+				//i:5 j:1 2 3 4 5
+				//i:5 j:1 2 3 4 
+				//i:5 j:1 2 3 
+				//i:5 j:1 2 
+				//i:5 j:1
 				System.out.print("*");
 			}
 			System.out.println();
@@ -32,9 +64,9 @@ public class A_10_23_quiz03 {
 //	***
 //	****
 		System.out.println("======2번======");
-		for(int i=1;i<5;i++) {
+		for(int i=0;i<=5;i++) {
 			
-			for(int j=0;j<i;j++) {
+			for(int j=1;j<i;j++) {
 				System.out.print("*");
 			}
 			System.out.println();
@@ -84,22 +116,35 @@ public class A_10_23_quiz03 {
 		System.out.print("입력 : ");
 		int star = scanner.nextInt();
 		
-		for(int i=1; i<=star;i++) {
-			
-			for(int j=0; j<i; j++) {
+//		for(int i=1; i<=star;i++) {
+//			
+//			for(int j=0; j<i; j++) {
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+//		
+//		for(int i=1; i<=star;i++) {
+//			
+//			for(int j=star; j>i; j--) {
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+		
+		for(int i=1;i<=star;i++) {
+			for(int j=1; j<=i;j++) {
 				System.out.print("*");
 			}
 			System.out.println();
 		}
 		
-		for(int i=1; i<=star;i++) {
-			
-			for(int j=star; j>i; j--) {
+		for(int i=num-1;i>=1;i--) {
+			for(int j=1;j<=i;j++) {
 				System.out.print("*");
 			}
 			System.out.println();
 		}
-		
 		
 		
 		
@@ -109,11 +154,17 @@ public class A_10_23_quiz03 {
 		
 		int sum = 0;
 		
-		for(int i=1; i<=10;i++) {
-			for(int j=1;j<=i;j++) {
+//		for(int i=1; i<=10;i++) {
+//			for(int j=1;j<=i;j++) {
+//				
+//				sum = sum + j;
+//			}		
+			
+			int ran=0;
+			for (int i=1; i<=10; i++) {
 				
-				sum = sum + j;
-			}		
+				ran = ran + i;
+				sum = sum + ran;
 			
 		}
 		System.out.println(sum);
@@ -130,16 +181,16 @@ public class A_10_23_quiz03 {
 		
 		for(i=1; total<100; i++) {
 			  if(i%2 == 0) {
-				  sumit = sumit + i;
-			  }else {
 				  sumit = sumit - i;
+			  }else {
+				  sumit = sumit + i;
 			  }
-			  total = sumit;
+			  total = sumit ;
 		  }
 		
-			System.out.println(i+" 까지 더해야 100이 넘습니다.");
+			System.out.println((i-1)+" 까지 더해야 100이 넘습니다.");
 			System.out.println("누적합은 "+total+" 입니다.");
-			 System.out.println("마지막에 더한 값은 : "+i+" 입니다.");
+			 System.out.println("마지막에 더한 값은 : "+(i-1)+" 입니다.");
 		
 		}//main end
 	

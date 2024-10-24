@@ -6,9 +6,6 @@ public class A_10_23_quiz02 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		
-		Scanner scanner = new Scanner(System.in);
 		
 		
 //		1.
@@ -50,6 +47,9 @@ public class A_10_23_quiz02 {
 //		정수 2개를 입력 받아서,
 //		아래 계산 결과를 출력하시오.
 //		큰수 - 작은수
+		
+		Scanner scanner = new Scanner(System.in);
+		
 		System.out.println("=======2번문제=======");
 		
 		System.out.print("입력1 : " );
