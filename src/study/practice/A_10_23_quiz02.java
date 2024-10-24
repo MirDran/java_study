@@ -92,33 +92,73 @@ public class A_10_23_quiz02 {
 		System.out.println("=======3번문제=======");
 	
 	
+//		System.out.print("첫번째 윷 입력 : " );
+//		int min1 = scanner.nextInt();
+//		System.out.print("두번째 윷 입력 : " );
+//		int min2 = scanner.nextInt();
+//		System.out.print("세번째 윷 입력 : " );
+//		int min3 = scanner.nextInt();
+//		System.out.print("네번째 윷 입력 : " );
+//		int min4 = scanner.nextInt();
+//		int sum = min1+min2+min3+min4;
+//		if(sum == 0) {
+//			System.out.println("결과 : 모");
+//		}else if(sum == 1) {
+//			System.out.println("결과 : 도");
+//		}else if(sum == 2) {
+//			System.out.println("결과 : 개");
+//		}else if(sum == 3) {
+//			System.out.println("결과 : 걸");
+//		}else if(sum == 4) {
+//			System.out.println("결과 : 윷");
+//		}else {
+//			System.out.println("다시 던지세요");
+//		}
+		
+		int[] yArr = new int[4];// intdex : 0 1 2 3 
+		int sum = 0;
+		
 		System.out.print("첫번째 윷 입력 : " );
-		int min1 = scanner.nextInt();
-		System.out.print("두번째 윷 입력 : " );
-		int min2 = scanner.nextInt();
-		System.out.print("세번째 윷 입력 : " );
-		int min3 = scanner.nextInt();
-		System.out.print("네번째 윷 입력 : " );
-		int min4 = scanner.nextInt();
-		int sum = 0 + min1+min2+min3+min4;
-		if(sum == 0) {
-			System.out.println("결과 : 모");
-		}else if(sum == 1) {
-			System.out.println("결과 : 도");
-		}else if(sum == 2) {
-			System.out.println("결과 : 개");
-		}else if(sum == 3) {
-			System.out.println("결과 : 걸");
-		}else if(sum == 4) {
-			System.out.println("결과 : 윷");
-		}else {
-			System.out.println("다시 던지세요");
+		for(int i=0; i<yArr.length; i++) {
+//			yArr[1] = scanner.nextInt();
+//			
+//			sum =+ yArr[i];
+			
+			sum += scanner.nextInt(); //딱히 좋은것은 아님
+			
 		}
 		
-		int y1, y2, y3, y4;
 		
 		
-		
+//		for(int i=0; i<yArr.length; i++) {
+//			yArr[1] = scanner.nextInt();
+//		}
+//		
+//		
+//		int sum = 0;
+//				for(int i=0; i<yArr.length;i++) {
+//					sum = sum +yArr[i]; // 0 1 2 3 (
+//				}
+//		
+		switch(sum) {
+		case 0:
+			System.out.println("결과 : 모");
+			break;
+		case 1:
+			System.out.println("결과 : 도");
+			break;
+		case 2:
+			System.out.println("결과 : 개");
+			break;
+		case 3:
+			System.out.println("결과 : 걸");
+			break;
+		case 4:
+			System.out.println("결과 : 윷");
+			break;
+			default:System.out.println("다시 던지세요");
+			break;
+		}
 		
 		
 		
