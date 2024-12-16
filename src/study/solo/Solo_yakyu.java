@@ -26,6 +26,7 @@ public class Solo_yakyu {
 		int anta = 0; //안타 카운트용
 		int homeCount = 0; // 점수용
 		int base1,base2,base3,base4;
+		int base = 0;
 		
 		while(over != 3){// 게임 전체 반복
 			

@@ -13,7 +13,7 @@ public class CalcMain {
 		
 		c2.powerOn();
 		
-		c1.setOwner("my name");
+		c1.setOwner("my name");    //리턴 void
 		
 		c1.setOwner("you'er name");
 		
