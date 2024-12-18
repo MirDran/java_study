@@ -1,4 +1,4 @@
-package study.practice.Moning12_17;
+package study.practice.moning12_17;
 
 public class SalaryMan {
 
