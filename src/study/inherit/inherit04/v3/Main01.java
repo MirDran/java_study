@@ -27,8 +27,15 @@ public class Main01 {
 		
 		for(Cleaner c : list) {
 			c.doClean();
+			
+			DustCleaner d = (DustCleaner)c;
+//			d.arrangeItem();
+			
+			
 		}
-//		
+		
+		
+//		if( c insteanceof Discleaner){
 //		c1.doClean();
 //		DustCleaner dc = new DustCleaner();
 //		dc.doClean();

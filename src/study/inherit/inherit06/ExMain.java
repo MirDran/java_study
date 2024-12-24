@@ -21,6 +21,22 @@ public class ExMain {
 //		Bus b3 = takeBus2(); 리턴 타입이 Vehicle 이라서 자식인 Bus는 담지를 못함
 		Vehicle b3 = takeBus2();
 		
+		
+		//-------------------
+		
+		Taxi t5 = new Taxi();
+		Vehicle v5 = t5;
+		v5.run();
+		t5.bsOn();
+		
+		Taxi t6 = (Taxi)v5;
+		t6.bsOn();
+		
+		Vehicle v6 = new Vehicle();
+		
+		if (v6 instanceof Taxi) {
+		Taxi t7 = (Taxi)v6; // vehicle이 몸통까지 라서 자식이 없음..
+		}
 	}
 
 	
