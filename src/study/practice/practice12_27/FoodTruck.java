@@ -66,19 +66,69 @@ public class FoodTruck {
 			int orderMenu = scanner.nextInt();
 			
 			//주문 함 => 재고 처리
-			// 몇개 주문?
+			
+			// 예외처리 -> 숫자 범위를 벗어났나?, 잘못된 값이 입력 되었나?
+			
+			//조건 : 재고가 없으면 주문 불가 -> 해당 메뉴의 재고를 확인
+			
+			if(foodList.get(orderMenu-1).stock > 0) // 재고가 0보다 커야 주문 가능
+			{
+				//재고가 잇으면 ? 주문 1개 처리
+				//주문 완료 정보 출력
+				System.out.printf("[주문정보] %s 메뉴 1개 주문완료!\n",foodList.get(orderMenu-1).name );
+				//private 면 getName 
+				
+				//재고-1개 처리
+//				foodList.get(orderMenu-1).stock -= -1;
+				foodList.get(orderMenu-1).modifyStock(-1);
+				
+				//매출액 중기
+				totalSales += foodList.get(orderMenu-1).price;
+				
+			}else {
+				System.out.println("[품절] 해당 메뉴는 품절입니다.");
+			}
+			
+			
 			break;
 		case 3: //재고관리
+			
+			for(int i = 0 ; i <foodList.size(); i++) {
+				System.out.printf("[%d] %s \n",i +1, foodList.get(i).getFoodInfo());
+			}
+			
+			System.out.print(">>> 재고 관리할 메뉴를 선택하세요 : ");
+			orderMenu = scanner.nextInt(); // 123
+			
+			System.out.println(">>> 재고 조정 개수를 입력하세요 ");
+			int changeStockCount = scanner.nextInt(); // 추가 혹은 빼기 
+			
+			foodList.get(orderMenu-1).modifyStock(changeStockCount);
+			System.out.println("[재고 적용 완료]");
+			System.out.println(foodList.get(orderMenu-1).getFoodInfo());
+			
+			
+			
 			break;
 		case 4: //마감하기
 			//매출 /원가 차감 -> 최종 수익
+			int lossSales = 0;
+			for(Food food : foodList) {
+				lossSales += (food.price * 0.3) * food.stock;
+			}
+			
+			System.out.println("[마감 정보]");
+			System.out.println(">>[총 메출] : " + totalSales);
+			System.out.println(">>[폐기손해] : " + lossSales);
+			System.out.println(">> [최종수익] : " + (totalSales - lossSales));
+			
 			isOpened = false;
 			System.out.println("푸드트럭 영업 마감");
 			break;
 		default:
 			System.out.println("잘못 입력 하셨습니다\n");
+			
 		}
-		
 		}// while 끝
 		
 	}
