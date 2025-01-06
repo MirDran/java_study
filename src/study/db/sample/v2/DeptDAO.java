@@ -24,7 +24,7 @@ public class DeptDAO {
 
 		int result = 0;
 		// 쿼리 준비
-		String sqlQuary = "select * from dept where deptno = ? ";
+		String sqlQuary = " insert into dept (deptno, dname, loc) values(?,?,?) ";
 
 		try {
 
