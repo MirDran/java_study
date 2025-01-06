@@ -13,6 +13,45 @@ public class DeptDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
+	
+	
+	// 83 이름3 지역3 을
+	// 83 재무팀 부산 으로 고칠거임
+	
+//	public int modifyDept(int deptno, String dname, String loc) {
+	public int modifyDept(Dept dept) {
+			// modifyDept(deptno, "재무팀", "부산")
+		
+		conn = DBConnectionManager.connectDB();
+
+		int result = 0;
+		// 쿼리 준비
+		String sqlQuary = " update dept "
+						+ "set dname = ?, loc = ? "
+						+ "where deptno = ? ";
+
+		try {
+
+			psmt = conn.prepareStatement(sqlQuary);
+
+			
+
+			psmt.setString(1,dept.getDname());
+			psmt.setString(2,dept.getLoc());
+			psmt.setInt(3,dept.getDeptno());
+
+			result = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// DB 연결 종료
+			DBConnectionManager.disconnectDB(conn, psmt, rs);
+		}
+
+		return result;
+	}
+			
 
 	//saveDept(50,"개발팀","서울");
 	

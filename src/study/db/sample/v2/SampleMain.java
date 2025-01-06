@@ -6,75 +6,113 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.spi.DirStateFactory.Result;
 
+import study.practice.moning_01_03.ProfessorDTO;
+
 public class SampleMain {
 
 	public static void main(String[] args) {
 
-		DeptDAO deptDAO = new DeptDAO();
 		
-		deptDAO.removeDept(81);
 		
-		int r1=deptDAO.removeDept(81);
-		if(r1 > 0) {
-			System.out.println("삭제 잘됨");
-		}
+		ProfessorDAO pofrssorDAO = new ProfessorDAO();
 		
-		Dept dd = new Dept(82, null, null);
-		int r2 = deptDAO.removeDept(dd);
-		if(r2 > 0) {
-			System.out.println("삭제 잘됨");
-		}
+		List<ProfessorDTO> pList = pofrssorDAO.findProfessorListByDeptno(101);
 		
-		/*
-		List<Dept> saveList = new ArrayList<Dept>();
-		saveList.add(new Dept(81,"이름1","지역1"));
-		saveList.add(new Dept(82,"이름2","지역2"));
-		saveList.add(new Dept(83,"이름3","지역3"));
+		ProfessorDTO p = pList.get(0);
 		
-		int count = 0;
-		for(Dept d : saveList) {
-			int result = deptDAO.saveDept(d);
-			count += result;
-			if(result > 0)
-				System.out.println("저장 잘됨");
-		}
+		System.out.println(p.getHiredate().getMonth());
+		System.out.println(p.getHiredate().getYear());
+		//1980-06-23
 		
-		System.out.println("총 "+ count + "개 저장됨");
+		LocalDateTime ldt = LocalDateTime.now();
 		
-		*/
-//		Dept newD = new Dept();
-//		newD.setDeptno(90);
-//		newD.setDname("개발팀");
-//		newD.setLoc("서울");	
+		System.out.println(ldt);
+		System.out.println(ldt.getYear());
+		System.out.println(ldt.getMonthValue());
+		
+//		DeptDAO deptDAO = new DeptDAO();
 //		
-//		int result = deptDAO.saveDept(newD);
-//		if(result > 0) {
-//			System.out.println("데이터 저장 성공");
+//		deptDAO.removeDept(81);
+//		
+//		int r1=deptDAO.removeDept(81);
+//		if(r1 > 0) {
+//			System.out.println("삭제 잘됨");
 //		}
-		
-		
-		
-		List<Dept> dList = deptDAO.findDeptList();
-		
-		if(dList != null && dList.size() >0) {
-			
-			for(Dept d : dList) {
-				System.out.println(d.getDeptno()+" "+d.getDname()+" "+ d.getLoc());	
-			}
-		}
-		
-		ProductDAO productDAO = new ProductDAO();
-		List<Product> productList = productDAO.findProductList();
-		
-		for(Product p : productList) {
-			System.out.println(p.toString());
-		}
-		
+//		
+//		Dept dd = new Dept(82, null, null);
+//		int r2 = deptDAO.removeDept(dd);
+//		if(r2 > 0) {
+//			System.out.println("삭제 잘됨");
+//		}
+//		
+//		Dept changeDept = new Dept(83, "재무팀", "부산");
+//		changeDept.setLoc("울산"); // 울산으로 바뀌어서 들어감
+//		
+//		Dept changeDept2 = new Dept();
+//		changeDept2.setDeptno(83); //deptno 83번
+//		changeDept2.setDname("재무팀");// 안바꾸더라도 값을 넣어야함
+//		//안그러면 null로 들어가며, 안바꿀거여도 기본 값을 넣어야 한다.
+//		changeDept2.setLoc("수원"); 
+//		
+//		
+//		int r3 = deptDAO.modifyDept(changeDept2);
+//		if(r3 > 0) {
+//			System.out.println("수정이 잘 되었다.");
+//		}
+//		
+//		
+//		
+//		/*
+//		List<Dept> saveList = new ArrayList<Dept>();
+//		saveList.add(new Dept(81,"이름1","지역1"));
+//		saveList.add(new Dept(82,"이름2","지역2"));
+//		saveList.add(new Dept(83,"이름3","지역3"));
+//		
+//		int count = 0;
+//		for(Dept d : saveList) {
+//			int result = deptDAO.saveDept(d);
+//			count += result;
+//			if(result > 0)
+//				System.out.println("저장 잘됨");
+//		}
+//		
+//		System.out.println("총 "+ count + "개 저장됨");
+//		
+//		*/
+////		Dept newD = new Dept();
+////		newD.setDeptno(90);
+////		newD.setDname("개발팀");
+////		newD.setLoc("서울");	
+////		
+////		int result = deptDAO.saveDept(newD);
+////		if(result > 0) {
+////			System.out.println("데이터 저장 성공");
+////		}
+//		
+//		
+//		
+//		List<Dept> dList = deptDAO.findDeptList();
+//		
+//		if(dList != null && dList.size() >0) {
+//			
+//			for(Dept d : dList) {
+//				System.out.println(d.getDeptno()+" "+d.getDname()+" "+ d.getLoc());	
+//			}
+//		}
+//		
+//		ProductDAO productDAO = new ProductDAO();
+//		List<Product> productList = productDAO.findProductList();
+//		
+//		for(Product p : productList) {
+//			System.out.println(p.toString());
+//		}
+//		
 		
 		
 		
