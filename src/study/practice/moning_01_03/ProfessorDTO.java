@@ -1,5 +1,9 @@
 package study.practice.moning_01_03;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class ProfessorDTO {
 
 	int profno;
@@ -9,7 +13,32 @@ public class ProfessorDTO {
 	int pay;
 	int deptno;
 	
+	LocalDateTime hiredate;
 	
+	
+	
+	/*
+	LocalDate hiredate; //자바 유틸 데이트 , 자바 sql데이트 2가지가 있다
+	//자바도 주로 로컬데이트나 로컬데이트타임을 쓴다.
+	
+	
+	public LocalDate getHiredate() {
+		return hiredate;
+	}
+
+	public void setHiredate(LocalDate hiredate) {
+		this.hiredate = hiredate;
+	}
+	*/
+
+	public LocalDateTime getHiredate() {
+		return hiredate;
+	}
+
+	public void setHiredate(LocalDateTime hiredate) {
+		this.hiredate = hiredate;
+	}
+
 	public ProfessorDTO() {
 	}
 	
