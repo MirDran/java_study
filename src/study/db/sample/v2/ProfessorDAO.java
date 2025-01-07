@@ -27,7 +27,8 @@ public class ProfessorDAO {
 		
 		//쿼리 준비
 		String sqlQuary = "select prono, name, id, position, pay, deptno "
-				+ "TO_CHAR(horedate, 'YYYY-MM-DD') from professor where deptno = ? ";
+				+ "TO_CHAR(horedate, 'YYYY-MM-DD') "
+				+ "from professor where deptno = ? ";
 		
 		try {
 			
