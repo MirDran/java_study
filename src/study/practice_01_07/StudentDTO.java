@@ -9,14 +9,15 @@ public class StudentDTO {
 	String name;
 	String id;
 	int grade;
-	LocalDate birthday;
+	String jumin;
+	String birthday;
 	String tel;
 	int height;
 	int weight;
 	int deptno1;
 	int deptno2;
 	int profno;
-	String jumin;
+	
 	
 	
 	public String getJumin() {
@@ -31,12 +32,17 @@ public class StudentDTO {
 		
 	}
 	
-	public StudentDTO(int studno, String name, String id, String jumin, int grade, LocalDate birthday, String tel, int height,
-			int weight, int deptno1, int deptno2, int profno) {
+	
+	
+	
+
+	public StudentDTO(int studno, String name, String id, int grade, String jumin, String birthday, String tel,
+			int height, int weight, int deptno1, int deptno2, int profno) {
 		this.studno = studno;
 		this.name = name;
 		this.id = id;
 		this.grade = grade;
+		this.jumin = jumin;
 		this.birthday = birthday;
 		this.tel = tel;
 		this.height = height;
@@ -44,9 +50,8 @@ public class StudentDTO {
 		this.deptno1 = deptno1;
 		this.deptno2 = deptno2;
 		this.profno = profno;
-		this.jumin = jumin;
 	}
-	
+
 	public int getStudno() {
 		return studno;
 	}
@@ -71,10 +76,10 @@ public class StudentDTO {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
-	public LocalDate getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(LocalDate birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 	public String getTel() {

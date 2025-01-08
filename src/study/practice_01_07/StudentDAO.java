@@ -45,7 +45,7 @@ public class StudentDAO {
 				stud.setId(rs.getString("id"));
 				stud.setGrade(rs.getInt("grade"));
 				stud.setJumin(rs.getString("jumin"));
-				stud.setBirthday(rs.getDate("birthday").toLocalDate());
+				stud.setBirthday(rs.getString("birthday"));
 				stud.setTel(rs.getString("tel"));
 				stud.setHeight(rs.getInt("height"));
 				stud.setWeight(rs.getInt("weight"));
@@ -97,7 +97,7 @@ public class StudentDAO {
 				stud.setId(rs.getString("id"));
 				stud.setGrade(rs.getInt("grade"));
 				stud.setJumin(rs.getString("jumin"));
-				stud.setBirthday(rs.getDate("birthday").toLocalDate());
+				stud.setBirthday(rs.getString("birthday"));
 				stud.setTel(rs.getString("tel"));
 				stud.setHeight(rs.getInt("height"));
 				stud.setWeight(rs.getInt("weight"));
@@ -117,5 +117,44 @@ public class StudentDAO {
 
 		return studList;
 	}
+	
+	public int saveStudentList(StudentDTO student) {
 
+		conn = DBConnectionManager.connectDB();
+
+		int result = 0;
+		
+		// 쿼리 준비
+		
+		String sqlQuary = "insert into student "
+				+ "values(?,?,?,?,?,TO_DATE(?,'yyyy-mm-dd'),?,?,?,?,?,?)";
+//				+ "values(?,?,?,?,?,?,?,?,?,?,?,?)";
+		try {
+			
+			psmt = conn.prepareStatement(sqlQuary);
+			
+			psmt.setInt(1,student.getStudno());
+			psmt.setString(2,student.getName());
+			psmt.setString(3,student.getId());
+			psmt.setInt(4,student.getGrade());
+			psmt.setString(5,student.getJumin());
+			psmt.setString(6,student.getBirthday());
+			psmt.setString(7,student.getTel());
+			psmt.setInt(8,student.getHeight());
+			psmt.setInt(9,student.getWeight());
+			psmt.setInt(10,student.getDeptno1());
+			psmt.setInt(11,student.getDeptno2());
+			psmt.setInt(12,student.getProfno());
+		
+			result = psmt.executeUpdate();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnectionManager.disconnectDB(conn, psmt, rs);
+		}
+
+		return result;
+	}
 }
+
